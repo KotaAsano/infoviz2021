@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W02_Task2</title>
+</head>
+<body>
+    <p>x=5, x=1, x=3</p>
+    <p>Min：<span id="min"></span></p>
+    <p>Mid：<span id="mid"></span></p>
+    <p>Max：<span id="max"></span></p>
+    <script src="./vec3.js"></script>
+    <script>
+
+        var x = 5, y = 1, z = 3
+        var v = new Vec3(x,y,z)
+
+        document.getElementById('min').innerText = v.min()
+        document.getElementById('mid').innerText = v.mid()
+        document.getElementById('max').innerText = v.max()
+    </script>
+</body>
+</html>

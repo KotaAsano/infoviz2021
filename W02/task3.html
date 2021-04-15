@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W02_Task3</title>
+</head>
+<body style="text-align: center;">
+    <form id="vec" style="display: inline-block; ">
+        <div style="display: flex;">
+            <label>v0</label>
+            <p style="margin-right: 10px;">x<input type="number" name="v0_x" value="0"></p>
+            <p style="margin-right: 10px;">y<input type="number" name="v0_y" value="0"></p>
+            <p>z<input type="number" name="v0_z" value="0"></p>
+        </div>
+        <div style="display: flex;">
+            <label>v1</label>
+            <p style="margin-right: 10px;">x<input type="number" name="v1_x" value="0"></p>
+            <p style="margin-right: 10px;">y<input type="number" name="v1_y" value="0"></p>
+            <p style="margin-right: 10px;">z<input type="number" name="v1_z" value="0"></p>
+        </div>
+        <div style="display: flex;">
+            <label>v2</label>
+            <p style="margin-right: 10px;">x<input type="number" name="v2_x" value="0"></p>
+            <p style="margin-right: 10px;">y<input type="number" name="v2_y" value="0"></p>
+            <p style="margin-right: 10px;">z<input type="number" name="v2_z" value="0"></p>
+        </div>
+        <input type="button" value="計算する" onclick="onClick()">
+    </form>
+    <p>結果</p>
+    <p id="answer"></p>
+    
+    <script src="./vec3.js"></script>
+    <script>
+
+        
+        AreaOfTriangle = (v0, v1, v2) => {
+            let VecA = new Vec3(v0.x - v1.x, v0.y - v1.y, v0.z - v1.z)
+            let VecB = new Vec3(v0.x - v2.x, v0.y - v2.y, v0.z - v2.z)
+
+            let S = VecA.sumSq() * VecB.sumSq() - (VecA.x * VecB.x + VecA.y * VecB.y + VecA.z * VecB.z) ** 2
+            S = Math.sqrt(S)/2
+            return S
+        }
+
+        onClick = () =>{
+            let x0 = document.getElementById('vec').v0_x.value
+            let y0 = document.getElementById('vec').v0_y.value
+            let z0 = document.getElementById('vec').v0_z.value
+            let x1 = document.getElementById('vec').v1_x.value
+            let y1 = document.getElementById('vec').v1_y.value
+            let z1 = document.getElementById('vec').v1_z.value
+            let x2 = document.getElementById('vec').v2_x.value
+            let y2 = document.getElementById('vec').v2_y.value
+            let z2 = document.getElementById('vec').v2_z.value
+            let v0 = new Vec3(x0, y0, z0)
+            let v1 = new Vec3(x1, y1, z1)
+            let v2 = new Vec3(x2, y2, z2)
+            document.getElementById('answer').innerText = AreaOfTriangle(v0,v1,v2)
+        }
+        
+
+    </script>
+    
+</body>
+</html>
