@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W04 task 01</title>
+</head>
+<body>
+    <script src="https://d3js.org/d3.v4.min.js"></script> 
+    <script>
+    'use strict'
+
+    var svg = d3.select("body").append("svg")
+    d3.csv("https://kotaasano.github.io/infoviz2021/W04/data.csv", draw )
+    function draw(data){
+        svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d){ return d.x })
+        .attr("cy", function(d){ return d.y })
+        .attr("r", function(d){ return d.r })
+    }
+
+    var svg_circle = d3.select("body").select("svg")
+    d3.csv("https://kotaasano.github.io/infoviz2021/W04/w04_task01.csv", fillColor)
+    function fillColor(data){
+        console.log(data)
+        svg_circle.selectAll("circle")
+        .data(data)
+        .style("fill", function(d){ return d.color })
+        .attr("cx", function(d){ return d.posx})
+        .attr("cy", function(d){ return d.posy})
+        .attr("r", function(d){ return d.radius })
+        .style('fill', function(d) { 
+                if(d.cases >= 0 && d.cases < 100){
+                    return 'green'
+                }else if(d.cases >= 100 && d.cases < 1000){
+                    return 'yellow'
+                }else if(d.cases >= 1000){
+                    return 'red'
+                }
+            })
+    }
+    </script>
+</body>
+</html>
