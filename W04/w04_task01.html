@@ -33,15 +33,6 @@
         .attr("cx", function(d){ return d.posx})
         .attr("cy", function(d){ return d.posy})
         .attr("r", function(d){ return d.radius })
-        .style('fill', function(d) { 
-                if(d.cases >= 0 && d.cases < 100){
-                    return 'green'
-                }else if(d.cases >= 100 && d.cases < 1000){
-                    return 'yellow'
-                }else if(d.cases >= 1000){
-                    return 'red'
-                }
-            })
     }
     </script>
 </body>
