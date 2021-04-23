@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="height: 100%;">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+        var padding = 10
+        var height = 20
+        var svg = d3.select('body').append('svg')
+        d3.csv("https://kotaasano.github.io/infoviz2021/W04/w04_task02.csv", draw )
+        function draw(data){
+
+            svg.style('height',data.length*(padding+height))
+            .style('width','15000px')
+            .selectAll('g').data(data).enter().append('g')
+            .append('rect')
+            .attr('x', padding * 30)
+            .attr('y', function(d,i) { return padding + i * ( height + padding) })
+            .attr('height', height)
+            .attr('width', function(d) { return d.cases})    
+            .style('fill', function(d) { 
+                if(d.cases >= 0 && d.cases < 250){
+                    return 'green'
+                }else if(d.cases >= 250 && d.cases < 1000){
+                    return 'yellow'
+                }else if(d.cases >= 1000){
+                    return 'red'
+                }
+            })
+
+            svg.style('height',data.length*(padding+height))
+            .style('width','20000px')
+            .selectAll('g').data(data)
+            .append('text')
+            .text(function(d){ return d.name})
+            .attr('x', padding)
+            .attr('y', function(d,i) { return padding + i * ( height + padding) })
+            .attr('dy','1em')
+
+
+        }
+
+    </script>
+</body>
+</html>
