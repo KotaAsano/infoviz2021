@@ -11,6 +11,7 @@
     <script>
         var padding = 10
         var height = 20
+        var point_o_x = 300
         var svg = d3.select('body').append('svg')
         d3.csv("https://kotaasano.github.io/infoviz2021/W04/w04_task02.csv", draw )
         function draw(data){
@@ -19,7 +20,7 @@
             .style('width','15000px')
             .selectAll('g').data(data).enter().append('g')
             .append('rect')
-            .attr('x', padding * 30)
+            .attr('x', point_o_x)
             .attr('y', function(d,i) { return padding + i * ( height + padding) })
             .attr('height', height)
             .attr('width', function(d) { return d.cases})    
@@ -38,7 +39,8 @@
             .selectAll('g').data(data)
             .append('text')
             .text(function(d){ return d.name})
-            .attr('x', padding)
+            .attr("text-anchor", "end")
+            .attr('x', point_o_x)
             .attr('y', function(d,i) { return padding + i * ( height + padding) })
             .attr('dy','1em')
 
