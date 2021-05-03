@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <svg>
+        <circle cx = "20" cy = "20" r = "10"/>
+        <circle cx="100" cy="50" r="10"></circle>
+        <circle cx="70" cy="80" r="10"></circle>
+    </svg>
+    <script src = "./d3.min.js"></script>
+    <script>
+        d3.select('body').selectAll('circle').style('fill','red')
+    </script>
+</body>
+</html>
