@@ -144,6 +144,7 @@ class ScatterPlot{
                 .html(`<div class="tooltip-label-maxtemp">${d.month}月</div>最高気温：${d.maxtemp}℃`)
             
             d3.select(e.target)
+            .transition().duration(250)
             .attr('r', self.config.radius * 3)
             .style('fill', 'orange')
         })
@@ -157,6 +158,7 @@ class ScatterPlot{
             d3.select('#tooltip').style('opacity', 0)
             
             d3.select(e.target)
+            .transition().duration(500)
             .attr('r', self.config.radius)
             .style('fill', 'red')
         })
@@ -168,6 +170,7 @@ class ScatterPlot{
                 .html(`<div class="tooltip-label-mintemp">${d.month}月</div>最低気温：${d.mintemp}℃`)
             
             d3.select(e.target)
+            .transition().duration(250)
             .attr('width', self.config.length_edge * 3)
             .attr('height', self.config.length_edge * 3)
             .style('fill', 'skyblue')
@@ -182,6 +185,7 @@ class ScatterPlot{
             d3.select('#tooltip').style('opacity', 0)
             
             d3.select(e.target)
+            .transition().duration(500)
             .attr('width', self.config.length_edge)
             .attr('height', self.config.length_edge)
             .style('fill', 'blue')
