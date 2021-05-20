@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W10 Task02</title>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+        #tooltip {
+            position: absolute;
+	        opacity: 0;
+	        background: rgb(223, 223, 223);
+	        border: 1px solid rgb(53, 53, 53);
+	        font-size: 17px;
+	        font-weight: 600;
+	        padding: 2px 8px;
+            border-radius: 10px;
+        }
+        .tooltip-label-maxtemp {
+	        font-weight: 500;
+	        font-size: 20px;
+	        color: rgb(196, 19, 19);
+        }
+        .tooltip-label-mintemp{
+            font-weight: 500;
+            font-size: 20px;
+            color: rgb(0, 44, 163);
+        }
+    </style>
+</head>
+<body>
+    <div id="tooltip"></div>
+    <svg id="drawing_region"></svg>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="w10_task02_main.js"></script>
+</body>
+</html>
